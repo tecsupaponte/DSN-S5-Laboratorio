@@ -6,6 +6,43 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Usuario</th>
+          <th>Contraseña</th>
+          <th><a href="/create">+</a></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% users.forEach(user => { %>
+          <tr>
+            <td><%=user.id%></td>
+            <td><%=user.name%></td>
+            <td><%=user.email%></td>
+            <td><%=user.username%></td>
+            <td><%=user.password%></td>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <a href="/edit/<%=user.id%>">EDITAR</a>
+                  </td>
+                  <td>
+                    <form method="post" action="/">
+                      <input name="userId" id="userId" type="hidden" value="<%=user.id%>">
+                      <button type="submit">ELIMINAR</button>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+      <%});%>
+      </tbody>
+    </table>
   </body>
 </html>

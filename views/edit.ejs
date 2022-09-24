@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form method="post" action="/edit/<%=user.id%>">
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="name">Nombre:</label></td>
+            <td><input name="name" id="name" type="text" value="<%=user.name%>" required></td>
+          </tr>
+          <tr>
+              <td><label for="email">E-mail:</label></td>
+              <td><input name="email" id="email" type="email" value="<%=user.email%>" required></td>
+          </tr>
+          <tr>
+              <td><label for="username">Usuario:</label></td>
+              <td><input name="username" id="username" type="text" value="<%=user.username%>" required></td>
+          </tr>
+          <tr>
+              <td><label for="password">Contraseña:</label></td>
+              <td><input name="password" id="password" type="password" required></td>
+          </tr>
+          <tr>
+              <td><a href="/">Volver</a></td>
+              <td><button type="submit">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>
