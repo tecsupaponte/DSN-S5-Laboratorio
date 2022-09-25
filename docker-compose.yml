@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - 3000:3000
+    depends_on:
+      - database
+  database:
+    image: postgres:14.5-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: javier
+      POSTGRES_PASSWORD: riastiddies
+      POSTGRES_DB: users
+volumes:
+  pgdata:

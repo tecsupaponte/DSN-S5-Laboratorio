@@ -2,25 +2,27 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+      rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+      crossorigin="anonymous">
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <table>
+  <body class="container">
+    <h1 class="mt-5 mb-3"><%= title %></h1>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Usuario</th>
-          <th>Contraseña</th>
-          <th><a href="/create">+</a></th>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Email</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col"><a href="/create">+</a></th>
         </tr>
       </thead>
       <tbody>
       <% users.forEach(user => { %>
           <tr>
-            <td><%=user.id%></td>
+            <th scope="row"><%=user.id%></td>
             <td><%=user.name%></td>
             <td><%=user.email%></td>
             <td><%=user.username%></td>
@@ -28,13 +30,13 @@
             <td>
               <table>
                 <tr>
-                  <td>
-                    <a href="/edit/<%=user.id%>">EDITAR</a>
+                  <td class="pe-2">
+                    <a href="/edit/<%=user.id%>" class="btn btn-warning">EDITAR</a>
                   </td>
-                  <td>
+                  <td class="ps-2">
                     <form method="post" action="/">
                       <input name="userId" id="userId" type="hidden" value="<%=user.id%>">
-                      <button type="submit">ELIMINAR</button>
+                      <button type="submit" class="btn btn-danger">ELIMINAR</button>
                     </form>
                   </td>
                 </tr>

@@ -5,6 +5,7 @@ var router = express.Router();
 const prisma = new PrismaClient();
 
 router.get('/', function (req, res) {
+    
     res.render('create', { title: "Crear Nuevo Usuario"});
 });
 

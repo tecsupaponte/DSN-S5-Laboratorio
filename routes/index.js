@@ -5,6 +5,7 @@ var router = express.Router();
 const prisma = new PrismaClient()
 
 router.get('/', async function (req, res, next) {
+	
 	const users = await prisma.user.findMany({
 		orderBy: {
 			id: 'asc'
