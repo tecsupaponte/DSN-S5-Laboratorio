@@ -15,19 +15,24 @@ router.get('/:id', async function (req, res) {
 	res.render('edit', { title: "Editar Usuario", user: user });
 });
 
-router.post('/:id', async function (req, res) {
+router.post('/', async function (req, res) {
 
-	await prisma.user.update({
-		where: {
-			id: parseInt(req.params.id)
-		},
-		data: {
-			name: req.body.name,
-			email: req.body.email,
-			username: req.body.username,
-			password: req.body.password
-		}
-	});
+	try {
+		await prisma.user.update({
+			where: {
+				id: parseInt(req.body.userId)
+			},
+			data: {
+				name: req.body.name,
+				email: req.body.email,
+				username: req.body.username,
+				password: req.body.password
+			}
+		});
+	} catch (error) {
+		console.log(error.message)
+	}
+
 
 	res.redirect('/');
 });
